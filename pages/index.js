@@ -8,11 +8,11 @@ import Items from './Components/Items'
 
 export default function Home() {
   return (
-   <div>
-     <Header></Header>
-     <Banner></Banner>
-     <Items></Items>
-     <Footer></Footer>
-   </div>
+    <div>
+      <Header></Header>
+      <Banner></Banner>
+      <Items></Items>
+      <Footer></Footer>
+    </div>
   )
 }
