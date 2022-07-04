@@ -1,42 +1,78 @@
-import React from 'react';
+import React, { useState } from 'react';
+ 
 import Link from 'next/link';
 import Footer from '../Components/Footer';
 import Header from '../Components/Header';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../firebase.init';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Login = () => {
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [signInWithEmailAndPassword, user, loading, signInError] = useSignInWithEmailAndPassword(auth);
+    console.log(email, password);
+    
+
+    if (loading) {
+        return <div className='flex justify-center items-center py-10'><button className="btn btn-square loading"></button></div>
+    }
+
+    if (signInError) {
+        toast.error(signInError)
+    }
+    
+if(user)
+{
+    console.log(user);
+}
+
+    const handleLogin = async (event) => {
+        event.preventDefault()
+        await signInWithEmailAndPassword(email, password)
+        toast.success('Login successfully done.')
+    }
+
     return (
         <>
-        <Header></Header>
-        <div>
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                <div className="card-body">
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Email</span>
-                        </label>
-                        <input type="text" placeholder="email" className="input input-bordered" />
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Password</span>
-                        </label>
-                        <input type="text" placeholder="password" className="input input-bordered" />
+            <Header></Header>
+            <div className='my-10'>
+                <div className="card flex-shrink-0 w-82 mx-auto max-w-sm shadow-2xl bg-base-100">
+                    <div className="card-body">
+                        <form onSubmit={handleLogin}>
 
-                        <label className="label">
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <input onBlur={(e) => setEmail(e.target.value)} type="text" placeholder="email" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Password</span>
+                                </label>
+                                <input onBlur={(e) => setPassword(e.target.value)} type="password" placeholder="password" className="input input-bordered" required />
 
-                        <p className="label-text-alt">New to Daraz?
-                                <Link href='/register'><a className='link link-hover'>Register</a></Link></p>
+                                <label className="label">
 
-                        </label>
+                                    <p className="label-text-alt">New to Daraz?
+                                        <Link href='/register'><a className='link link-hover'>Register</a></Link></p>
+
+                                </label>
+                            </div>
+                            <div className="form-control mt-6">
+                                <button type='submit' className="btn btn-primary">Login</button>
+                            </div>
+                        </form>
                     </div>
-                    <div className="form-control mt-6">
-                        <button className="btn btn-primary">Login</button>
-                    </div>
+                    <ToastContainer></ToastContainer>
                 </div>
             </div>
-        </div>
-        <Footer></Footer>
-    </>
+            <Footer></Footer>
+        </>
     );
 };
 
