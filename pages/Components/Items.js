@@ -14,7 +14,7 @@ const Items = () => {
             <div>
                 <div
                    
-                    className="card w-72 mx-auto shadow border my-5 ">
+                    className="card w-[350px] mx-auto shadow border my-5 ">
                     <figure className="px-10 pt-10">
                         <img src={item.image} alt="Shoes" className=" w-[400px] h-[400] rounded-xl" />
                     </figure>
@@ -35,7 +35,7 @@ const Items = () => {
 
                         <div className="card-actions mt-3 mx-auto">
 
-                           <Link href={`/Components/${item.id}`} passHref><button className="btn bg-blue-900 rounded-full px-10">Add to cart</button></Link>
+                           <Link href={`/Components/${item.id}`} passHref><button className="btn bg-lime-500 rounded-full px-10">Add to cart</button></Link>
 
                         </div>
                     </div>

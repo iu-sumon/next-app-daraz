@@ -39,8 +39,9 @@ if(user)
     return (
         <>
             <Header></Header>
-            <div className='my-10'>
-                <div className="card flex-shrink-0 w-82 mx-auto max-w-sm shadow-2xl bg-base-100">
+            <div className='bg-[#677E81] h-screen p-10'>
+            <h1 className='text-3xl text-center text-white font-semibold p-5'>Please Login </h1>
+                <div className="card flex-shrink-0 w-82 mx-auto max-w-sm shadow bg-base-100">
                     <div className="card-body">
                         <form onSubmit={handleLogin}>
 
@@ -58,13 +59,13 @@ if(user)
 
                                 <label className="label">
 
-                                    <p className="label-text-alt">New to Daraz?
-                                        <Link href='/register'><a className='link link-hover'>Register</a></Link></p>
+                                    <p className="label-text-alt text-sm font-bold text-orange-500">New to Daraz?
+                                        <Link href='/register'><a className='link link-hover'> Register</a></Link></p>
 
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button type='submit' className="btn btn-primary">Login</button>
+                                <button type='submit' className="btn bg-lime-500">Login</button>
                             </div>
                         </form>
                     </div>

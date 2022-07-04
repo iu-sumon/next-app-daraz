@@ -1,47 +1,47 @@
 import React from 'react';
-import NextLink from 'next/link';
+import Link from 'next/link';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../firebase.init';
+import { signOut } from 'firebase/auth';
 const Header = () => {
-    const menuItems = <>
+    const [user] = useAuthState(auth)
+    console.log(user);
 
-        
-        <li className='font-semibold mr-3 text-white text-xl'><NextLink href='/' passHref>Cart</NextLink><sup>0</sup></li>
-        <li className='font-semibold mr-5 text-white text-xl'><NextLink href='/login' passHref>Login</NextLink></li>
+    const logout = () => {
+        signOut(auth);
+    };
 
-    </>
+
+
+
     return (
         <div>
-            <div className="navbar bg-secondary pl-5">
+            <div className="navbar bg-lime-500 pl-5">
                 <div className="navbar-start">
-                    <a className="normal-case text-xl text-white font-bold">Daraz</a>
+                    <a className="normal-case text-xl text-white font-bold">
+                        <Link href='/'>Daraz</Link>
+
+                    </a>
                 </div>
-               
 
-                <div className='navbar-end '>
-                    <div className="menu menu-horizontal p-0">
-                        {menuItems}
-                    </div>
-                    <div className="dropdown dropdown-hover dropdown-end">
 
-                        <label tabIndex="0">
+                <div className='navbar-end mt-3'>
 
-                            <div className="avatar">
+                    {user ? <button  onClick={logout} className=' btn bg-emerald-500 px-10 md:font-bold'>
 
-                                <div className=" text-center text-white text-xl bg-primary leading-tight z-10 rounded-full md:w-12 w-10  md:h-12 h-10 border-2 border-primary cursor-pointer hover:ring hover:ring-offset-2 duration-500 ring-primary">
+                        <Link href='/login' passHref>SignOut</Link>
 
-                                    <img src="https://placeimg.com/192/192/people" />
-                                </div>
+                    </button>
+                        :
+                        <button className=' btn bg-emerald-500 px-10 md:font-bold'>
 
-                            </div>
+                            <Link href='/login' passHref>Login</Link>
 
-                        </label>
+                        </button>
 
-                        <ul tabIndex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-lg md:w-52 h-52">
-                            <p className='text-center mb-5 md:font-bold'>Name</p>
-                            <p className='text-center mb-5 md:font-bold'>Order History</p>
-                            <p className='text-center mb-5 md:font-bold'>Logout</p>
 
-                        </ul>
-                    </div>
+
+                    }
                 </div>
 
             </div>
