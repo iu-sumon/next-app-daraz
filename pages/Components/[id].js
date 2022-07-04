@@ -39,8 +39,8 @@ const Single = () => {
 
                                 <tr>
                                     <td>
-                                        <div class="avatar">
-                                            <div class="w-16 rounded-lg">
+                                        <div className="avatar">
+                                            <div className="w-16 rounded-lg">
                                                 <img src={res.image} />
                                             </div>
                                         </div>
@@ -49,9 +49,9 @@ const Single = () => {
                                     <td>{res.name}</td>
                                     <td>
                                         <select
-                                        value={quantity}
-                                        onChange={(e) => setQuantity(e.target.value)}
-                                        
+                                            value={quantity}
+                                            onChange={(e) => setQuantity(e.target.value)}
+
                                         >
                                             <option>1</option>
                                             <option>2</option>
@@ -75,15 +75,15 @@ const Single = () => {
                     <div>
 
                         <div>
-                            <div class=" w-72  bg-base-300 rounded-lg">
+                            <div className=" w-72  bg-base-300 rounded-lg">
 
-                                <div class="card-body">
+                                <div className="card-body">
 
-                                    <h2 class="card-title">SubTotal: {res.price *parseInt(quantity)}$</h2>
+                                    <h2 className="card-title">SubTotal: {res.price * parseInt(quantity)}$</h2>
 
-                                    <div class="card-actions">
+                                    <div className="card-actions">
 
-                                        <button class="btn  bg-lime-500 uppercase w-full">check out</button>
+                                        <button className="btn  bg-lime-500 uppercase w-full">check out</button>
                                     </div>
                                 </div>
                             </div>
