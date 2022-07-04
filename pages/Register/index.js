@@ -1,12 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
+import Header from '../Components/Header';
+import Footer from '../Components/Footer';
 
 
 function Register() {
 
     return (
-        <div>
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <> 
+        <Header></Header>
+        <div className=''>
+            <div className="card flex-shrink-0 w-82 mx-auto max-w-sm shadow-2xl bg-base-100">
                 <div className="card-body">
                     <div className="form-control">
                         <label className="label">
@@ -47,6 +51,8 @@ function Register() {
                 </div>
             </div>
         </div>
+        <Footer></Footer>
+    </>
     );
 };
 

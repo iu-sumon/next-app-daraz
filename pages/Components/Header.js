@@ -4,8 +4,8 @@ const Header = () => {
     const menuItems = <>
 
         
-        <li className='font-semibold mr-3 text-white text-xl  p-3'><NextLink href='/' passHref>Cart</NextLink><sup>0</sup></li>
-        <li className='font-semibold mr-5 text-white text-xl  p-3'><NextLink href='/login' passHref>Login</NextLink></li>
+        <li className='font-semibold mr-3 text-white text-xl'><NextLink href='/' passHref>Cart</NextLink><sup>0</sup></li>
+        <li className='font-semibold mr-5 text-white text-xl'><NextLink href='/login' passHref>Login</NextLink></li>
 
     </>
     return (
