@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
-import data from '../../public/data'
+import data from '../public/data'
 import { useRouter } from 'next/router';
 import Header from './Header';
 import Footer from './Footer';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Image from 'next/image';
+
+
+
 const Single = () => {
     const [quantity, setQuantity] = useState()
     const router = useRouter()
     const { id } = router.query;
     const res = data.find((item) => item.id == id)
-
+    const handlePayment = () => {
+        toast.success('Your payment successfully done.')
+    }
 
     return (
         <>
@@ -41,7 +49,7 @@ const Single = () => {
                                     <td>
                                         <div className="avatar">
                                             <div className="w-16 rounded-lg">
-                                                <img src={res.image} />
+                                                {/* <Image src={res?.image} alt=''/> */}
                                             </div>
                                         </div>
 
@@ -63,7 +71,7 @@ const Single = () => {
                                             <option>8</option>
                                         </select>
                                     </td>
-                                    <td>{res.price}</td>
+                                    <td>{res?.price}</td>
                                     <td><button className="btn btn-xs btn-warning">Delete</button></td>
 
                                 </tr>
@@ -83,7 +91,7 @@ const Single = () => {
 
                                     <div className="card-actions">
 
-                                        <button className="btn  bg-lime-500 uppercase w-full">check out</button>
+                                        <button onClick={() => handlePayment()} className="btn  bg-lime-500 uppercase w-full">check out</button>
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +99,7 @@ const Single = () => {
 
                     </div>
 
-
+                    <ToastContainer></ToastContainer>
 
 
                 </div>

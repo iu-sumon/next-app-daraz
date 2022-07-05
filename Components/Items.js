@@ -1,7 +1,7 @@
 import React from 'react';
-import data from '../../public/data'
+import data from '../public/data'
 import Link from 'next/link';
-
+import Image from 'next/image';
 const Items = () => {
 
     const items = data.map((i) => {
@@ -16,7 +16,7 @@ const Items = () => {
                    
                     className="card w-[350px] mx-auto shadow border my-5 ">
                     <figure className="px-10 pt-10">
-                        <img src={item.image} alt="Shoes" className=" w-[400px] h-[400] rounded-xl" />
+                        {/* <Image src={item.image} alt="Shoes" className=" w-[400px] h-[400] rounded-xl" /> */}
                     </figure>
                     <div className="card-body">
                         <h2 className="text-xl font-semibold text-center uppercase">{item.name}</h2>
@@ -35,7 +35,7 @@ const Items = () => {
 
                         <div className="card-actions mt-3 mx-auto">
 
-                           <Link href={`/Components/${item.id}`} passHref><button className="btn bg-lime-500 rounded-full px-10">Add to cart</button></Link>
+                           <Link href={`/cart/${item.id}`} passHref><button className="btn bg-lime-500 rounded-full px-10">Add to cart</button></Link>
 
                         </div>
                     </div>
