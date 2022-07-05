@@ -6,7 +6,7 @@ const Banner = () => {
         <div>
             <div className="carousel w-full">
                 <div id="item1" className="carousel-item w-full">
-                    <Image src="/1.avif"  alt='' width='1500' height='500'/>
+                    <Image src="/1.jpg"  alt='' width='1500' height='500'/>
 
                 </div>
                 <div id="item2" className="carousel-item w-full">
