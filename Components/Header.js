@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../pages/firebase.init';
+import auth from '../public/firebase.init';
 import { signOut } from 'firebase/auth';
 const Header = () => {
     const [user] = useAuthState(auth)

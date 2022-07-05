@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Footer from '../../Components/Footer';
 import Header from '../../Components/Header';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import auth from '../firebase.init';
+import auth from '../../public/firebase.init';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
